@@ -32,7 +32,7 @@ class GenericQueueTest {
 
     @Test
     @DisplayName("Assert that the right element is front on the queue")
-    public void testForRightBoolOnPeek() {
+    public void testForRightBoolOnPeek() throws QueueEmptyException {
         GenericQueue<Boolean> booleanGenericQueue = new GenericQueue<>();
         booleanGenericQueue.enqueue(false);
         booleanGenericQueue.enqueue(true);
@@ -45,15 +45,10 @@ class GenericQueueTest {
         booleanGenericQueue.enqueue(false);
         booleanGenericQueue.enqueue(true);
 
-        try {
-            booleanGenericQueue.dequeue();
-            booleanGenericQueue.dequeue();
-            booleanGenericQueue.dequeue();
-            booleanGenericQueue.dequeue();
-        } catch (QueueEmptyException exception) {
-            exception.printStackTrace();
-        }
-
+        assertEquals(booleanGenericQueue.dequeue(), false);
+        assertEquals(booleanGenericQueue.dequeue(), true);
+        assertEquals(booleanGenericQueue.dequeue(), true);
+        assertEquals(booleanGenericQueue.dequeue(), true);
         assertEquals(booleanGenericQueue.peek(), false);
     }
 

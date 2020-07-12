@@ -1,14 +1,14 @@
 package com.codersbay;
 
-import java.util.LinkedList;
-import java.util.Queue;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GenericQueue<T> {
 
-    private final Queue<T> contentOfQueue;
+    private final List<T> contentOfQueue;
 
     public GenericQueue() {
-        contentOfQueue = new LinkedList<>();
+        contentOfQueue = new ArrayList<>();
     }
 
     public int length() {
@@ -19,16 +19,33 @@ public class GenericQueue<T> {
         if (contentOfQueue.isEmpty()) {
             throw new QueueEmptyException("Queue has no elements - cannot dequeue!");
         } else {
-            return contentOfQueue.poll();
+            return contentOfQueue.remove(contentOfQueue.size() - 1);
         }
     }
 
     public void enqueue(T element) {
-        contentOfQueue.add(element);
+        T saver;
+
+        if (contentOfQueue.isEmpty()) {
+            contentOfQueue.add(element);
+        } else {
+            /* TODO
+            1.) einen eintrag (= index) hinzufügen - wert egal, deshalb einfach "element"
+            2.) gehe vom letzten element bis zum ersten alle bisherigen indizes durch
+            um die werte eins nach rechts zu kopieren
+            3.) den 0-ten index mit dem neuen wert überschreiben
+             */
+            contentOfQueue.add(element);
+            for (int i = contentOfQueue.size() - 1; i > 0; i--) {
+                contentOfQueue.set(i, contentOfQueue.get(i - 1));
+            }
+            contentOfQueue.set(0, element);
+            // geht sicher eleganter, aber was besseres fällt mir ned ein
+        }
     }
 
     public T peek() {
-        return contentOfQueue.peek();
+        return contentOfQueue.get(contentOfQueue.size() - 1);
     }
 
     @Override
