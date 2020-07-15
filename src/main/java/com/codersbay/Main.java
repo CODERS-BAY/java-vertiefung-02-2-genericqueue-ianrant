@@ -9,17 +9,6 @@ public class Main {
         GenericQueue<String> stringGenericQueue = new GenericQueue<>();
         GenericQueue<Boolean> booleanGenericQueue = new GenericQueue<>();
 
-/*
-        System.out.println("Integer Queue");
-        integerGenericQueue.enqueue(10);
-        //System.out.println(integerGenericQueue.peek() + " is the first element");
-        integerGenericQueue.enqueue(30);
-        integerGenericQueue.enqueue(70);
-        integerGenericQueue.enqueue(130);
-        integerGenericQueue.enqueue(320);
-        //System.out.println(integerGenericQueue.peek() + " is the first element");
-        System.out.println(integerGenericQueue.toString());
-*/
 
 
         System.out.println("Integer Queue");
@@ -34,9 +23,6 @@ public class Main {
         System.out.println(integerGenericQueue.dequeue() + " was removed");
         System.out.println(integerGenericQueue.dequeue() + " was removed");
         System.out.println(integerGenericQueue.dequeue() + " was removed");
-        //System.out.println(integerGenericQueue.dequeue()+ " was removed");
-        //System.out.println(integerGenericQueue.dequeue()+ " was removed");
-        //System.out.println(integerGenericQueue.dequeue()+ " was removed");
         System.out.println();
         System.out.println();
         System.out.println("String Queue");

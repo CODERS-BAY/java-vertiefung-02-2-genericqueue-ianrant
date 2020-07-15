@@ -24,7 +24,6 @@ public class GenericQueue<T> {
     }
 
     public void enqueue(T element) {
-        T saver;
 
         if (contentOfQueue.isEmpty()) {
             contentOfQueue.add(element);
